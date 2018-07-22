@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Web 试验室</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <!-- 引入 Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app/css/default.css" rel="stylesheet">
+
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<!--
+    导航条
+    如果要用白色底的，使用 navbar-default，黑色底如这里，使用 navbar-inverse
+    这里自定义了 .navbar-right-angle 覆盖 bootstrap 导航条的圆角
+    .navbar-right-angle {
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+        border-radius: 0 !important;
+    }
+-->
+<nav class="navbar navbar-inverse navbar-right-angle" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Java Web 试验室</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">首页</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1>Hello, world!<small>你好，世界！</small></h1>
+
+<!-- 底部页脚 -->
+<footer class="footer navbar-fixed-bottom">
+    <div class="container-fluid text-center">
+        <hr />
+        <p>&copy;2018 evilmoon.cn </p>
+    </div>
+</footer>
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

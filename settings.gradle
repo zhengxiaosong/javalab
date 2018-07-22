@@ -1,0 +1,6 @@
+rootProject.name = 'javalab'
+include 'SpringLab'
+findProject(':SpringLab')?.name = 'springlab'
+include 'fxlab'
+findProject(':fxlab')?.name = 'fxlab'
+

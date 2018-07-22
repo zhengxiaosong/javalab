@@ -1,0 +1,6 @@
+/* 覆盖 bootstrap 导航条的圆角效果 */
+.navbar-right-angle{
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
