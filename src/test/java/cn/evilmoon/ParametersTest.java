@@ -2,6 +2,9 @@ package cn.evilmoon;
 
 import org.junit.Test;
 
+/*
+ * 测试方法的参数引用
+ */
 public class ParametersTest {
 
     @Test
