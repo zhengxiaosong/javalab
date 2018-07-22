@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Date;
 import java.util.Properties;
 
-/*
+/**
  * 获取系统的信息
  */
 public class SystemMessageTest {
