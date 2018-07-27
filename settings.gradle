@@ -3,4 +3,6 @@ include 'SpringLab'
 findProject(':SpringLab')?.name = 'springlab'
 include 'fxlab'
 findProject(':fxlab')?.name = 'fxlab'
+include 'ConsoleLab'
+findProject(':ConsoleLab')?.name = 'consolelab'
 
