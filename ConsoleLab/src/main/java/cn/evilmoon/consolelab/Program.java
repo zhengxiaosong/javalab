@@ -1,8 +1,6 @@
 package cn.evilmoon.consolelab;
 
-import cn.evilmoon.consolelab.labs.FlowerLab;
-import cn.evilmoon.consolelab.labs.GarbageLab;
-import cn.evilmoon.consolelab.labs.InitializeLab;
+import cn.evilmoon.consolelab.labs.*;
 
 public class Program {
     public static void main(String[] args) {
