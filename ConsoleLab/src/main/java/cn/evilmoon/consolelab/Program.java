@@ -1,32 +1,46 @@
 package cn.evilmoon.consolelab;
 
-import cn.evilmoon.consolelab.labs.DemoLab;
+import cn.evilmoon.consolelab.labs.FlowerLab;
+import cn.evilmoon.consolelab.labs.GarbageLab;
+import cn.evilmoon.consolelab.labs.InitializeLab;
 
 public class Program {
     public static void main(String[] args) {
-        printBlank();
+        print();
         print("ConsoleLab start up:");
-        repeatPrint("=", 80);
+        print(80, "=");
 
-        Lab lab = new DemoLab();
-        lab.run();
+        Lab lab = new InitializeLab();
+        lab.run(args);
 
-        repeatPrint("=", 80);
+        print(80, "=");
         print("ConsoleLab end!");
     }
 
-    private static void repeatPrint(String symbol, int count) {
-        for (int i = 0; i < count; i++) {
+    /**
+     * 重复打印字符串
+     * @param times 重复次数
+     * @param symbol 要打印的字符串
+     */
+    private static void print(int times, String symbol) {
+        for (int i = 0; i < times; i++) {
             System.out.print(symbol);
         }
         System.out.println();
     }
 
+    /**
+     * 打印字符串
+     * @param msg 要打印的字符串
+     */
     private static void print(String msg) {
         System.out.println(msg);
     }
 
-    private static void printBlank() {
+    /**
+     * 输出一个空白行
+     */
+    private static void print() {
         System.out.println();
     }
 }
