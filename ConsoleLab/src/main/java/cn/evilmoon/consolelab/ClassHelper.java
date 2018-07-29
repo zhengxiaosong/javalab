@@ -14,7 +14,7 @@ class ClassHelper {
      * @param packageName 类所在的包名
      * @return 类列表
      */
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings("unchecked")
     static ArrayList<Class> getAllClassByInterface(Class iClass, String packageName) {
         ArrayList<Class> list = new ArrayList<>();
         // 判断是否是一个接口
@@ -42,7 +42,6 @@ class ClassHelper {
      *
      * @param packagename 要查找类的所在包名
      */
-    @SuppressWarnings("rawtypes")
     private static ArrayList<Class> getAllClass(String packagename) {
         ArrayList<Class> list = new ArrayList<>();
         // 返回对当前正在执行的线程对象的引用。
@@ -51,13 +50,9 @@ class ClassHelper {
         String path = packagename.replace('.', '/');
         try {
             ArrayList<File> fileList = new ArrayList<>();
-            /*
-             * 这里面的路径使用的是相对路径 如果大家在测试的时候获取不到，请理清目前工程所在的路径 使用相对路径更加稳定！
-             * 另外，路径中切不可包含空格、特殊字符等！
-             */
+
             // getResources:查找所有给定名称的资源
-            // 获取jar包中的实现类:Enumeration<URL> enumeration =
-            // classLoader.getResources(path);
+            // 获取jar包中的实现类:Enumeration<URL> enumeration = classLoader.getResources(path);
             Enumeration<URL> enumeration = classLoader.getResources(path);
             while (enumeration.hasMoreElements()) {
                 URL url = enumeration.nextElement();
@@ -80,7 +75,6 @@ class ClassHelper {
      * @param packagename 包名
      * @return 类列表
      */
-    @SuppressWarnings("rawtypes")
     private static ArrayList<Class> findClass(File file, String packagename) {
         ArrayList<Class> list = new ArrayList<>();
         if (!file.exists()) {

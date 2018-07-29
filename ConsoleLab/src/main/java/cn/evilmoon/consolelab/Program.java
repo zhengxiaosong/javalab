@@ -7,7 +7,6 @@ import java.util.Date;
 
 import static cn.evilmoon.consolelab.ClassHelper.getAllClassByInterface;
 
-@SuppressWarnings("unchecked")
 public class Program {
     public static void main(String[] args) {
         print();
@@ -28,7 +27,7 @@ public class Program {
                 lab.run(args);
             }
             catch (Exception e) {
-                print(e.getMessage());
+                e.printStackTrace();
             }
         }
 
@@ -38,14 +37,18 @@ public class Program {
     }
 
     /**
-     * 获取当前可执行的试验（Execute注解的时间最晚的一个）
-     * @return Lab的实现类，同时被Execute注解的类
+     * 获取当前可执行的试验（TimeTag 注解的时间最晚的一个）
+     * @return 实现了 Lab 接口，同时被 TimeTag 注解的类，需要判断是否为 null
      */
+    @SuppressWarnings("unchecked")
     private static Class getRunTarget() {
-        ArrayList<Class> labList = getAllClassByInterface(Lab.class,
-                Lab.class.getPackage().getName() + ".labs");
+        // 这里面的路径使用的是相对路径 如果在测试的时候获取不到，请理清目前工程所在的路径 使用相对路径更加稳定！
+        // 另外，路径中切不可包含空格、特殊字符等！
+        String packagePath = Lab.class.getPackage().getName() + ".labs";
+        ArrayList<Class> labList = getAllClassByInterface(Lab.class, packagePath);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        // TimeTag 的时间精确到分钟：
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date targetTime = new Date();
         targetTime.setTime(0);
         Class targetClass = null;
@@ -53,7 +56,9 @@ public class Program {
         for(Class cls : labList) {
             String name = cls.getName();
 
+            // cls 类是否包含 TimeTag 注解
             if (cls.isAnnotationPresent(TimeTag.class)) {
+                // 获取 cls 的 TimeTag 注解对象
                 TimeTag timeTag = (TimeTag) cls.getAnnotation(TimeTag.class);
                 try {
                     Date time = sdf.parse(timeTag.value());
@@ -90,6 +95,11 @@ public class Program {
         System.out.println(msg);
     }
 
+    /**
+     * 打印字符串，通过 noEnter 来指示是否最后加上换行符
+     * @param msg 要打印的字符串
+     * @param noEnter 是否最后加上换行符
+     */
     private static void print(String msg, boolean noEnter) {
         if (noEnter)
             System.out.print(msg);
