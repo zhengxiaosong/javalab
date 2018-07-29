@@ -6,6 +6,7 @@ import cn.evilmoon.consolelab.functions.Chair;
 /**
  * 观察垃圾收集器的试验，使用了 functions.Chair 类
  */
+@SuppressWarnings({"deprecation", "all"})
 public class GarbageLab implements Lab {
 
     /**
@@ -25,7 +26,7 @@ public class GarbageLab implements Lab {
 
         while (!Chair.flag) {
             new Chair();
-            new String("To take up space");
+            String tmp = new String("To take up space");
         }
 
         System.out.println(
