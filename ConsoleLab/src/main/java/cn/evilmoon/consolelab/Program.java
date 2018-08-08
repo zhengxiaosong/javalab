@@ -42,26 +42,26 @@ public class Program {
      */
     @SuppressWarnings("unchecked")
     private static Class getRunTarget() {
-        // 这里面的路径使用的是相对路径 如果在测试的时候获取不到，请理清目前工程所在的路径 使用相对路径更加稳定！
-        // 另外，路径中切不可包含空格、特殊字符等！
+
+        // 通过包名来获取类所在的相对路径：
         String packagePath = Lab.class.getPackage().getName() + ".labs";
+        // 获取路径下所有继承自 Lab 接口的类：
         ArrayList<Class> labList = getAllClassByInterface(Lab.class, packagePath);
 
         // TimeTag 的时间精确到分钟：
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date targetTime = new Date();
         targetTime.setTime(0);
         Class targetClass = null;
 
         for(Class cls : labList) {
-            String name = cls.getName();
-
-            // cls 类是否包含 TimeTag 注解
+            // cls 类是否包含 TimeTag 注解：
             if (cls.isAnnotationPresent(TimeTag.class)) {
-                // 获取 cls 的 TimeTag 注解对象
+                // 获取 cls 的 TimeTag 注解对象：
                 TimeTag timeTag = (TimeTag) cls.getAnnotation(TimeTag.class);
                 try {
-                    Date time = sdf.parse(timeTag.value());
+                    Date time = dateFormat.parse(timeTag.value());
+                    // 记录TimeTag时间最晚的一个类：
                     if (time.after(targetTime)) {
                         targetTime = time;
                         targetClass = cls;

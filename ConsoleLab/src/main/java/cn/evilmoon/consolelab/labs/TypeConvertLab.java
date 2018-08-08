@@ -26,9 +26,9 @@ public class TypeConvertLab implements Lab {
 
         try {
             String dateString = "2018-08-08 17:01:01";
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            Date dateData = sdf.parse(dateString);
-            System.out.println("String to Date use [SimpleDateFormat]:\t\t\t" + sdf.format(dateData));
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            Date dateData = dateFormat.parse(dateString);
+            System.out.println("String to Date use [SimpleDateFormat]:\t\t\t" + dateFormat.format(dateData));
             System.out.println("\tSimpleDateFormat.format(Date) or SimpleDateFormat.format(String) ");
         }
         catch (ParseException e) {
