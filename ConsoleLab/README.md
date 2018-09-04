@@ -18,3 +18,5 @@
 * InitializeLab : 观察类成员的初始化次序（先按定义的次序初始化，再调用构造器的初始化）
 * FigureLab     : Java 计算超大数据值
 * TypeConvert   : Java 主类型、Date类型和String的转换
+* BytesLab      : 字节处理练习
+* ChatSocketClientLab   : WebSocket 客户端练习
