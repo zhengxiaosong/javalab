@@ -3,6 +3,8 @@ package cn.evilmoon.consolelab.labs;
 import cn.evilmoon.consolelab.Lab;
 import cn.evilmoon.consolelab.TimeTag;
 
+import cn.evilmoon.consolelab.functions.Md5;
+import com.tsingoal.com.AccessUtil;
 import org.java_websocket.WebSocket;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
@@ -14,14 +16,16 @@ import java.net.URISyntaxException;
 /**
  * cn.evilmoon.springlab.websocket.ChatSocket 的客户端
  */
-@TimeTag("2018-09-04 21:16")
+@TimeTag("2018-09-08 11:16")
 public class ChatSocketClientLab implements Lab {
+    private final String wsServer = "ws://120.27.12.74:9001";
     @Override
     public void run(String[] args) {
         try {
             client = new WebSocketClient(new URI("ws://localhost:8080/chat"),new Draft_6455()) {
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {
+
                     System.out.println("握手成功");
                 }
 
@@ -31,7 +35,6 @@ public class ChatSocketClientLab implements Lab {
                     if(msg.equals("over")){
                         client.close();
                     }
-
                 }
 
                 @Override
@@ -55,8 +58,7 @@ public class ChatSocketClientLab implements Lab {
             System.out.println("正在连接...");
         }
         //连接成功,发送信息
-        client.send("哈喽,连接一下啊");
-
+        //client.send("哈喽,连接一下啊");
     }
 
     private WebSocketClient client;
