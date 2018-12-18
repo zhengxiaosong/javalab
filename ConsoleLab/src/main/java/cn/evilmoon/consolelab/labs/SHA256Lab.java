@@ -22,7 +22,12 @@ public class SHA256Lab implements Lab {
         final String secret = "23b7fbcdcb564e4a9fef6d5f5d333e90";
         params.put("api_key", "digitalcamera");
         params.put("nonce_str", "abc1234");
-        params.put("timestamp", "2018-12-18 12:37:01");
+        params.put("timestamp", "2018-12-18 16:47:01");
+
+        // business params
+        //params.put("app", "digitalcamera");
+        //params.put("code", "l4ZFvnyr8HkkUbqwPe94K1hvGfunjM6vauYAAAEs");
+        //params.put("redirect_uri", "https://transitsharedqaapim0.azure-api.cn/commons-ssofed/v1/auth?app=digitalcamera&subscription-key=3c0b9c448ace43e5a8f20fefa444a1ca");
         try {
             System.out.println("Sign is ----> " + sign(params, secret));
         }
